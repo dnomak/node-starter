@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "nodemon bin/www",
     "start": "node bin/www",
+    "lint": "prettier . --write --ignore-path .gitignore",
     "ncu": "ncu --interactive"
   },
   "dependencies": {
@@ -13,7 +14,9 @@
     "pug": "^3.0.2"
   },
   "devDependencies": {
+    "@prettier/plugin-pug": "^2.4.2",
     "nodemon": "^2.0.22",
-    "npm-check-updates": "^16.10.8"
+    "npm-check-updates": "^16.10.8",
+    "prettier": "^2.8.7"
   }
 }
