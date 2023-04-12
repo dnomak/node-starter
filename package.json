@@ -4,9 +4,9 @@
   "author": "Dogukan Guven Nomak <me@dnomak.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "nodemon bin/www",
-    "start": "node bin/www",
-    "lint": "prettier . --write --ignore-path .gitignore",
+    "dev": "nodemon",
+    "start": "node .",
+    "lint": "eslint . --fix --ignore-path .gitignore && prettier . --write --ignore-path .gitignore",
     "ncu": "ncu --interactive"
   },
   "dependencies": {
@@ -15,8 +15,10 @@
   },
   "devDependencies": {
     "@prettier/plugin-pug": "^2.4.2",
+    "eslint": "^8.38.0",
     "nodemon": "^2.0.22",
     "npm-check-updates": "^16.10.8",
     "prettier": "^2.8.7"
-  }
+  },
+  "type": "module"
 }

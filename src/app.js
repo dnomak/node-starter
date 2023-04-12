@@ -1,15 +1,16 @@
-const express = require('express')
-const path = require('path')
+import express from 'express'
 
-const indexRouter = require('./routes/index')
+import { resolvePath } from './utils.js'
+
+import indexRouter from './routes/index.js'
 
 const app = express()
 
-app.set('views', path.join(__dirname, './views'))
+app.set('views', resolvePath('./views'))
 app.set('view engine', 'pug')
 
-app.use(express.static(path.join(__dirname, '../public')))
+app.use(express.static(resolvePath('../public')))
 
 app.use('/', indexRouter)
 
-module.exports = app
+export default app
