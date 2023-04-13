@@ -1,0 +1,5 @@
+{
+  "exec": "npm start",
+  "ext": "ts",
+  "watch": ["index.ts", "src"]
+}

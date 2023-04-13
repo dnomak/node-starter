@@ -5,7 +5,8 @@
   "license": "MIT",
   "scripts": {
     "dev": "nodemon",
-    "start": "node .",
+    "start": "ts-node -r tsconfig-paths/register .",
+    "type-check": "tsc",
     "lint": "eslint . --fix --ignore-path .gitignore && prettier . --write --ignore-path .gitignore",
     "ncu": "ncu --interactive"
   },
@@ -15,10 +16,15 @@
   },
   "devDependencies": {
     "@prettier/plugin-pug": "^2.4.2",
+    "@types/express": "^4.17.17",
+    "@typescript-eslint/eslint-plugin": "^5.58.0",
+    "@typescript-eslint/parser": "^5.58.0",
     "eslint": "^8.38.0",
     "nodemon": "^2.0.22",
     "npm-check-updates": "^16.10.8",
-    "prettier": "^2.8.7"
-  },
-  "type": "module"
+    "prettier": "^2.8.7",
+    "ts-node": "^10.9.1",
+    "tsconfig-paths": "^4.2.0",
+    "typescript": "^5.0.4"
+  }
 }
