@@ -1,0 +1,29 @@
+version: '3'
+services:
+  node-starter:
+    image: node-starter
+    container_name: node-starter
+    build:
+      dockerfile: Dockerfile.dev
+    volumes:
+      - ./src:/app/src
+      - ./public:/app/public
+    labels:
+      - 'traefik.enable=true'
+      - 'traefik.http.routers.node-starter.rule=Host(`${DOMAIN:-node-starter.localhost}`)'
+      - 'traefik.http.routers.node-starter.entrypoints=web'
+    ports:
+      - 3000:3000
+  load-balancer:
+    image: traefik:2.9
+    container_name: node-starter-load-balancer
+    command:
+      - '--api.insecure=true'
+      - '--providers.docker=true'
+      - '--providers.docker.exposedbydefault=false'
+      - '--entrypoints.web.address=:80'
+    ports:
+      - '80:80'
+      - '8080:8080'
+    volumes:
+      - '/var/run/docker.sock:/var/run/docker.sock:ro'
