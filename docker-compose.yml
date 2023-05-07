@@ -14,6 +14,7 @@ services:
       - 'traefik.http.routers.node-starter.entrypoints=web'
     ports:
       - 3000:3000
+      - 9229:9229
   load-balancer:
     image: traefik:2.9
     container_name: node-starter-load-balancer

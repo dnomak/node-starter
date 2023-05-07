@@ -4,8 +4,8 @@
   "author": "Dogukan Guven Nomak <me@dnomak.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "nodemon",
-    "start": "ts-node -r tsconfig-paths/register .",
+    "dev": "node --watch --inspect=0.0.0.0:9229 -r ts-node/register -r tsconfig-paths/register .",
+    "start": "node -r ts-node/register -r tsconfig-paths/register .",
     "type-check": "tsc",
     "lint": "eslint . --fix --ignore-path .gitignore && prettier . --write --ignore-path .gitignore",
     "ncu": "ncu --interactive"
@@ -21,7 +21,6 @@
     "@typescript-eslint/parser": "5.58.0",
     "eslint": "8.38.0",
     "eslint-plugin-simple-import-sort": "10.0.0",
-    "nodemon": "2.0.22",
     "npm-check-updates": "16.10.8",
     "prettier": "2.8.7",
     "ts-node": "10.9.1",
