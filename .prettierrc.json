@@ -3,7 +3,7 @@
   "bracketSameLine": false,
   "bracketSpacing": true,
   "htmlWhitespaceSensitivity": "strict",
-  "printWidth": 80,
+  "printWidth": 120,
   "pugAttributeSeparator": "none",
   "pugSingleQuote": false,
   "quoteProps": "as-needed",
