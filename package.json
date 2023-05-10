@@ -4,8 +4,8 @@
   "author": "Dogukan Guven Nomak <me@dnomak.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "node --watch --inspect=0.0.0.0:9229 -r ts-node/register -r tsconfig-paths/register .",
-    "start": "node -r ts-node/register -r tsconfig-paths/register .",
+    "dev": "node --watch --inspect=0.0.0.0:9229 -r ts-node/register -r tsconfig-paths/register index.ts",
+    "start": "node -r ts-node/register -r tsconfig-paths/register index.ts",
     "type-check": "tsc",
     "lint": "eslint . --fix --ignore-path .gitignore && prettier . --write --ignore-path .gitignore",
     "ncu": "ncu --interactive"

@@ -6,6 +6,7 @@ services:
     build:
       dockerfile: Dockerfile.dev
     volumes:
+      - /etc/localtime:/etc/localtime:ro
       - ./src:/app/src
       - ./public:/app/public
     labels:
