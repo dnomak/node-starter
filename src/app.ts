@@ -18,6 +18,7 @@ app.use(function (req, res, next) {
   next(createError(404))
 })
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/no-unused-vars
 app.use(function (err: any, req: Request, res: Response, next: NextFunction) {
   const error: ErrorProps = {
     status: err.status || 500,
