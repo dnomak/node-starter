@@ -1,5 +1,6 @@
 import express, { NextFunction, Request, Response } from 'express'
 import createError from 'http-errors'
+import sassMiddleware from 'node-sass-middleware'
 import path from 'path'
 
 import indexRouter from '@/routes/index'
@@ -10,6 +11,15 @@ const app = express()
 app.set('views', path.join(__dirname, './views'))
 app.set('view engine', 'pug')
 
+app.use(
+  sassMiddleware({
+    src: path.join(__dirname, 'styles'),
+    dest: path.join(__dirname, '../public/assets'),
+    debug: app.get('env') === 'development',
+    outputStyle: 'compressed',
+    prefix: '/assets',
+  })
+)
 app.use(express.static(path.join(__dirname, '../public')))
 
 app.use('/', indexRouter)
