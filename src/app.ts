@@ -24,12 +24,12 @@ app.use(express.static(path.join(__dirname, '../public')))
 
 app.use('/', indexRouter)
 
-app.use(function (req, res, next) {
+app.use((req, res, next) => {
   next(createError(404))
 })
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/no-unused-vars
-app.use(function (err: any, req: Request, res: Response, next: NextFunction) {
+app.use((err: any, req: Request, res: Response, next: NextFunction) => {
   const error: ErrorProps = {
     status: err.status || 500,
     message: err.message,
