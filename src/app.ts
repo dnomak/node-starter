@@ -3,7 +3,7 @@ import createError from 'http-errors'
 import sassMiddleware from 'node-sass-middleware'
 import path from 'path'
 
-import indexRouter from '@/routes/index'
+import homeRouter from '@/routes/home'
 import { ErrorProps } from '@/types'
 
 const app = express()
@@ -13,16 +13,16 @@ app.set('view engine', 'pug')
 
 app.use(
   sassMiddleware({
-    src: path.join(__dirname, 'styles'),
-    dest: path.join(__dirname, '../public/assets'),
+    src: path.join(__dirname, 'assets/styles'),
+    dest: path.join(__dirname, '../public/assets/css'),
     debug: app.get('env') === 'development',
     outputStyle: 'compressed',
-    prefix: '/assets',
+    prefix: '/assets/css',
   })
 )
 app.use(express.static(path.join(__dirname, '../public')))
 
-app.use('/', indexRouter)
+app.use('/', homeRouter)
 
 app.use((req, res, next) => {
   next(createError(404))
