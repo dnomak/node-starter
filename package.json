@@ -7,7 +7,7 @@
     "dev": "node --watch --inspect=0.0.0.0:9229 -r ts-node/register -r tsconfig-paths/register index.ts",
     "start": "node -r ts-node/register -r tsconfig-paths/register index.ts",
     "type-check": "tsc",
-    "lint": "eslint . --fix --ignore-path .gitignore && prettier . --write --ignore-path .gitignore",
+    "lint": "eslint . --fix --ignore-path .gitignore && prettier . --write --ignore-path .prettierignore",
     "ncu": "ncu --interactive"
   },
   "dependencies": {
