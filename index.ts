@@ -23,9 +23,11 @@ function onError(error: NodeJS.ErrnoException) {
   }
   switch (error.code) {
     case 'EACCES':
+      throw error
       process.exit(1)
       break
     case 'EADDRINUSE':
+      throw error
       process.exit(1)
       break
     default:

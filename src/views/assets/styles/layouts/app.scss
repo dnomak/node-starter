@@ -1,0 +1,31 @@
+.container {
+  height: 100vh;
+  padding: 24rem;
+}
+.dnomak {
+  font-family: var(--source-code-pro);
+  display: inline-block;
+  color: var(--gray-500);
+  font-weight: 600;
+  line-height: 1.5;
+  .col {
+    font-size: 16rem;
+  }
+  .love {
+    color: var(--red-300);
+    &.icon {
+      font-size: 24rem;
+    }
+  }
+  [data-prefix='fas'] {
+    display: none;
+  }
+  &:hover {
+    [data-prefix='far'] {
+      display: none;
+    }
+    [data-prefix='fas'] {
+      display: inline-block;
+    }
+  }
+}

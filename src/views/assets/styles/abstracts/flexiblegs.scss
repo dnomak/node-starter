@@ -86,20 +86,20 @@
     flex-wrap: wrap;
   } @else if $prop == 'gutter' {
     width: calc(100% + #{$val}#{'rem'});
-    margin-left: -#{calc($val / 2)}#{'rem'};
-    margin-right: -#{calc($val / 2)}#{'rem'};
+    margin-left: -#{($val / 2)}#{'rem'};
+    margin-right: -#{($val / 2)}#{'rem'};
     padding-left: 0;
     padding-right: 0;
     > * {
-      padding-left: #{calc($val / 2)}#{'rem'};
-      padding-right: #{calc($val / 2)}#{'rem'};
+      padding-left: #{($val / 2)}#{'rem'};
+      padding-right: #{($val / 2)}#{'rem'};
     }
   } @else if $prop == 'outside' {
     width: 100%;
     margin-left: 0;
     margin-right: 0;
-    padding-left: #{calc($val / 2)}#{'rem'};
-    padding-right: #{calc($val / 2)}#{'rem'};
+    padding-left: #{($val / 2)}#{'rem'};
+    padding-right: #{($val / 2)}#{'rem'};
   } @else if $prop == 'masonry' {
     column-count: $val;
   } @else {
@@ -107,7 +107,7 @@
       @if $prop == 'auto' {
         width: auto;
       } @else {
-        width: #{calc(100% / $prop)};
+        width: #{(100% / $prop)};
       }
     }
   }
@@ -133,6 +133,6 @@
   } @else if $prop == 'not-last' {
     order: 0;
   } @else {
-    width: #{calc(100% / $val * $prop)};
+    width: #{(100% / $val * $prop)};
   }
 }

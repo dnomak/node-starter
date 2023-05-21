@@ -8,18 +8,19 @@ import homeRouter from '@/routes/home'
 
 const app = express()
 
-app.set('views', path.join(__dirname, '../views'))
+app.set('views', path.join(__dirname, '../views/pages'))
 app.set('view engine', 'pug')
 
 app.use(
   sassMiddleware({
-    src: path.join(__dirname, 'assets/styles'),
+    src: path.join(__dirname, '../views/assets/styles'),
     dest: path.join(__dirname, '../../public/assets/css'),
-    debug: app.get('env') === 'development',
+    debug: false,
     outputStyle: 'compressed',
     prefix: '/assets/css',
   })
 )
+
 app.use(express.static(path.join(__dirname, '../../public')))
 
 app.use('/', homeRouter)

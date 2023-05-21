@@ -1,0 +1,24 @@
+doctype html
+html
+  head
+    meta(name="robots" content="noindex")
+    meta(charset="UTF-8")
+    link(rel="icon" href="/favicon.ico")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    link(rel="stylesheet" href="/assets/css/index.css")
+    link(rel="stylesheet" href="/assets/css/layouts/app.css")
+    block head
+    title= title
+  body
+    block body
+    .wrap.xl-flexbox.xl-center.xl-1.container
+      .col
+        block content
+        a.dnomak(href="https://github.com/dnomak/node-starter" target="_blank")
+          span.wrap.xl-auto.xl-middle.xl-center.xl-gutter-4
+            span.col I
+            span.col.love.icon
+              include ../assets/icons/far-heart.pug
+              include ../assets/icons/fas-heart.pug
+            span.col.love Love
+            span.col JavaScript
