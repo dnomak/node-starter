@@ -9,7 +9,7 @@ html
     link(rel="stylesheet" href="/assets/css/layouts/app.css")
     block head
     title= title
-  body
+  body(class=`route-${handle}`)
     block body
     .wrap.xl-flexbox.xl-center.xl-1.container
       .col
