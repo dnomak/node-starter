@@ -1,4 +1,5 @@
 import compression from 'compression'
+import cors from 'cors'
 import express, { NextFunction, Request, Response } from 'express'
 import helmet from 'helmet'
 import createError from 'http-errors'
@@ -6,6 +7,7 @@ import logger from 'morgan'
 import path from 'path'
 
 import { ErrorProps } from '@/app/types'
+import dnomakRouter from '@/routes/dnomak'
 import homeRouter from '@/routes/home'
 
 const app = express()
@@ -28,11 +30,18 @@ if (sassMiddleware) {
 
 app.use(express.static(path.join(__dirname, '../../public')))
 
+app.use(
+  cors({
+    origin: app.get('env') === 'production' ? 'https://dnomak.com' : true,
+    credentials: true,
+  })
+)
 app.use(logger('dev'))
 app.use(helmet())
 app.use(compression())
 
 app.use('/', homeRouter)
+app.use('/', dnomakRouter)
 
 app.use((req, res, next) => {
   next(createError(404))
