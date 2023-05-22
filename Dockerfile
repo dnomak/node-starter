@@ -4,7 +4,7 @@ WORKDIR /app
 
 ADD package.json package-lock.json ./
 
-RUN npm install
+RUN npm install --omit=dev
 
 ADD .eslintrc.json .prettierrc.json index.ts tsconfig.json ./
 

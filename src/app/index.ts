@@ -3,7 +3,6 @@ import express, { NextFunction, Request, Response } from 'express'
 import helmet from 'helmet'
 import createError from 'http-errors'
 import logger from 'morgan'
-import sassMiddleware from 'node-sass-middleware'
 import path from 'path'
 
 import { ErrorProps } from '@/app/types'
@@ -14,15 +13,18 @@ const app = express()
 app.set('views', path.join(__dirname, '../views/pages'))
 app.set('view engine', 'pug')
 
-app.use(
-  sassMiddleware({
-    src: path.join(__dirname, '../views/assets/styles'),
-    dest: path.join(__dirname, '../../public/assets/css'),
-    debug: false,
-    outputStyle: 'compressed',
-    prefix: '/assets/css',
-  })
-)
+const sassMiddleware = app.get('env') === 'production' ? null : require('node-sass-middleware')
+if (sassMiddleware) {
+  app.use(
+    sassMiddleware({
+      src: path.join(__dirname, '../views/assets/styles'),
+      dest: path.join(__dirname, '../../public/assets/css'),
+      debug: false,
+      outputStyle: 'compressed',
+      prefix: '/assets/css',
+    })
+  )
+}
 
 app.use(express.static(path.join(__dirname, '../../public')))
 
