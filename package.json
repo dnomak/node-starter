@@ -11,6 +11,7 @@
     "ncu": "ncu --interactive"
   },
   "dependencies": {
+    "compression": "^1.7.4",
     "dotenv": "16.0.3",
     "express": "4.18.2",
     "http-errors": "2.0.0",
@@ -20,6 +21,7 @@
   },
   "devDependencies": {
     "@prettier/plugin-pug": "2.5.0",
+    "@types/compression": "^1.7.2",
     "@types/express": "4.17.17",
     "@types/http-errors": "2.0.1",
     "@types/node-sass-middleware": "^0.0.32",

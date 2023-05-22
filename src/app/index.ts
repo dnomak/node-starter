@@ -1,3 +1,4 @@
+import compression from 'compression'
 import express, { NextFunction, Request, Response } from 'express'
 import createError from 'http-errors'
 import sassMiddleware from 'node-sass-middleware'
@@ -22,6 +23,8 @@ app.use(
 )
 
 app.use(express.static(path.join(__dirname, '../../public')))
+
+app.use(compression())
 
 app.use('/', homeRouter)
 
