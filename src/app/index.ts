@@ -7,6 +7,7 @@ import createError from 'http-errors'
 import logger from 'morgan'
 import path from 'path'
 
+import { rateLimiter } from '@/app/modules/rate-limiter'
 import { ErrorProps } from '@/app/types'
 import dnomakRouter from '@/routes/dnomak'
 import homeRouter from '@/routes/home'
@@ -41,6 +42,7 @@ app.use(
 app.use(logger('dev'))
 app.use(helmet())
 app.use(compression())
+app.use(rateLimiter)
 
 app.use('/', homeRouter)
 app.use('/', dnomakRouter)

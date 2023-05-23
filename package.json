@@ -27,6 +27,7 @@
     "morgan": "1.10.0",
     "normalize.css": "8.0.1",
     "pug": "3.0.2",
+    "rate-limiter-flexible": "2.4.1",
     "ts-node": "10.9.1",
     "tsconfig-paths": "4.2.0",
     "typescript": "5.0.4"
