@@ -1,4 +1,5 @@
 import compression from 'compression'
+import cookieParser from 'cookie-parser'
 import cors from 'cors'
 import express, { NextFunction, Request, Response } from 'express'
 import helmet from 'helmet'
@@ -27,9 +28,10 @@ if (sassMiddleware) {
     })
   )
 }
-
 app.use(express.static(path.join(__dirname, '../../public')))
-
+app.use(express.json())
+app.use(express.urlencoded({ extended: false }))
+app.use(cookieParser())
 app.use(
   cors({
     origin: app.get('env') === 'production' ? 'https://dnomak.com' : true,
