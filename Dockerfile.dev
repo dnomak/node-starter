@@ -8,6 +8,6 @@ ADD package.json package-lock.json ./
 
 RUN npm install
 
-ADD .env .eslintrc.json .prettierrc.json index.ts tsconfig.json ./
+ADD .env .eslintrc.json .prettierignore .prettierrc.json index.ts tsconfig.json ./
 
 CMD ["npm", "run", "dev"]

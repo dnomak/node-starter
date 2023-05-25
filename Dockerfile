@@ -6,7 +6,7 @@ ADD package.json package-lock.json ./
 
 RUN npm install --omit=dev
 
-ADD .eslintrc.json .prettierrc.json index.ts tsconfig.json ./
+ADD .eslintrc.json .prettierignore .prettierrc.json index.ts tsconfig.json ./
 
 COPY src ./src
 COPY public ./public
