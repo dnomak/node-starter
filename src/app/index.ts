@@ -1,3 +1,4 @@
+import { errors } from 'celebrate'
 import compression from 'compression'
 import cookieParser from 'cookie-parser'
 import cors from 'cors'
@@ -39,6 +40,7 @@ app.use(
     credentials: true,
   })
 )
+app.use(errors())
 app.use(logger('dev'))
 app.use(helmet())
 app.use(compression())
